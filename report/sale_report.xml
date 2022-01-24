@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id='sale_order_picking_all_operation_report' model='ir.actions.report'>
+        <field name='name'>Picking All Operation</field>
+        <field name='model'>sale.order</field>
+        <field name='report_type'>qweb-pdf</field>
+        <field name='report_name'>po_so_note.sale_order_picking_all_operation_document</field>
+        <field name='report_file'>po_so_note.sale_order_picking_all_operation_document</field>
+        <field name='binding_model_id' ref='sale.model_sale_order'/>
+        <field name='binding_type'>report</field>
+    </record>
+
+    <template id="sale_order_picking_all_operation_document" inherit_id="stock.report_picking">
+        <!-- <t t-call='web.basic_layout'>
+            <div class='page'>
+                <t t-foreach='docs' t-as='doc'>
+                    <div class='text-center'>
+                        <h1> sale Order # <t t-esc='doc.name'/> </h1>
+                    </div>
+                    <div style='margin-top:30px;'> 
+                            <table class='offset-md-2 col-md-8 offset-md-2' >
+                                <tr>
+                                    <td><b>Customer:</b></td>
+                                    <td><b>Order Date:</b></td>
+                                </tr>
+                                <tr>
+                                    <td><t t-esc='doc.partner_id.name'/></td>
+                                    <td><t t-esc='doc.date_order'/></td>
+                                </tr>
+                            </table>
+                    </div>
+                </t>
+            </div>
+        </t> -->
+
+        <t t-call="web.html_container">
+        <t t-foreach="doc" t-as="docs">
+            <!-- <t t-call="stock.report_picking"/> -->
+        </t>
+        </t>
+    </template>
+
+</odoo>
